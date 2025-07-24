@@ -135,6 +135,10 @@ async function displayProducts() {
     });
 }
 
+<<<<<<< HEAD
 // location.href = 
 
 displayProducts();
+=======
+displayProducts();
+>>>>>>> 2661612268e90cc5f6ee4eb3282e797051ce0b72
