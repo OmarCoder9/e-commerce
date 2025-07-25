@@ -1,0 +1,34 @@
+:root {
+  --background-color: #181a20;
+  --primary-color: #00ffea;
+  --secondary-color: #1f2233;
+  --accent-color: #ff00cc;
+  --text-color: #f4f4f4;
+  --font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+.navbar,
+.footer,
+footer {
+  background: var(--secondary-color) !important;
+}
+
+a,
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+a:hover {
+  color: var(--accent-color) !important;
+}
+
+.bg-primary {
+  background: var(--primary-color) !important;
+  color: #181a20 !important;
+}
