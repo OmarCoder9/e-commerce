@@ -3,11 +3,12 @@
  * @param {HTMLElement} container - The DOM element to render the stars in.
  * @param {number} rating - The rating value (e.g., 4.8).
  * @param {number} maxStars - The maximum number of stars (default 5).
+ * @param {number} pageNumber - refers to page number of the products.
  */
 
-async function fetchData() {
+async function fetchData(pageNumber = 1) {
     try {
-        const response = await fetch("https://ecommerce.routemisr.com/api/v1/products");
+        const response = await fetch(`https://ecommerce.routemisr.com/api/v1/products?limit=8&page=${pageNumber}`);
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }
@@ -29,7 +30,7 @@ function renderStars(container, rating, maxStars = 5) {
         } else if (rating > i - 1 && rating < i) {
         // Partial star (for decimals)
         const percent = (rating - (i - 1)) * 100;
-        star.innerHTML = `<span style="position:relative;display:inline-block;width:1em;">
+        star.innerHTML = `<span class = "position-relative d-inline-block w-1em">
             <span style="color:#de7921;position:absolute;width:${percent}%;overflow:hidden;">★</span>
             <span style="color:#ccc;">★</span>
         </span>`;
@@ -41,14 +42,14 @@ function renderStars(container, rating, maxStars = 5) {
         container.appendChild(star);
     }
 }
-async function displayProducts() {
-    const result = await fetchData();
+async function displayProducts(pageNumber = 1) {
+    const result = await fetchData(pageNumber);
     if (!result || !result.data) {
         console.error("No product data found");
     return;
     }
     const products = result.data;
-    const myDiv = document.createElement("div");
+    const myDiv = document.getElementById("main");
     const myProducts = document.createElement("div");
     myProducts.style.width = "100%";
     myProducts.style.marginBottom = "50px";
@@ -60,10 +61,6 @@ async function displayProducts() {
         myProduct.className = "oneProduct";
         myProduct.style.width = "300px";
         const myPic = document.createElement("div");
-        myPic.style.cssText = `
-        border-top-left-radius: 16px;
-        border-top-right-radius: 16px;
-        `
         let content = `<img src="${products[i].images[0]}" alt="product image">`;
         myPic.innerHTML = content;
         myPic.style.width = "100%";
@@ -82,9 +79,6 @@ async function displayProducts() {
         myBtn.addEventListener("click", ()=>{
             window.location.href = `/product.html?id=${products[i]._id}`
         });
-        myProduct.style.display = "grid"
-        myProduct.style.gridTemplateColumns = "1fr"
-        myProduct.style.gridTemplateRows = "1fr auto";
         proName.innerHTML = products[i].title;
         proPrice.innerHTML = products[i].price + " EGP";
         proPrice.style.marginTop = "-16px"
@@ -107,7 +101,6 @@ async function displayProducts() {
     myProducts.style.flexWrap = "wrap";
     myProducts.style.gap = "30px";
     myDiv.appendChild(myProducts);
-    document.body.appendChild(myDiv);
     const imgs = myProducts.getElementsByTagName("img");
     Array.from(imgs).forEach((img) => {
         img.style.width = "100%";
@@ -117,3 +110,42 @@ async function displayProducts() {
     });
 }
 displayProducts();
+let currentActiveBtn = null;
+
+function setActiveButton(btn) {
+    if (currentActiveBtn) {
+        currentActiveBtn.style.backgroundColor = "";
+        currentActiveBtn.style.color = "";
+    }
+    btn.style.backgroundColor = "#007bff";
+    btn.style.color = "#fff";
+    currentActiveBtn = btn;
+}
+function createPaginationButtons(totalPages = 7) {
+    const paginationDiv = document.createElement("div");
+    paginationDiv.style.display = "flex";
+    paginationDiv.style.justifyContent = "center";
+    paginationDiv.style.gap = "10px";
+    paginationDiv.style.marginBottom = "30px";
+
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = `${i}`;
+        btn.style.padding = "8px 16px";
+        btn.style.borderRadius = "8px";
+        btn.style.border = "1px solid #ccc";
+        btn.style.cursor = "pointer";
+        btn.addEventListener("click", () => {
+            document.getElementById("main").innerHTML = "";
+            displayProducts(i);
+            setActiveButton(btn);
+        });
+        if (i === 1) {
+            setActiveButton(btn);
+        }
+        paginationDiv.appendChild(btn);
+    }
+    document.body.insertBefore(paginationDiv, document.getElementById("footer"));
+}
+
+createPaginationButtons();
