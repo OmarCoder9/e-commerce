@@ -27,9 +27,29 @@ async function injectHeaderFooter() {
   await insertComponent("components/footer.html", "footer", "bottom");
 }
 
+// Set favicon dynamically for all pages
+function setFavicon() {
+  // Remove any existing favicon links
+  const existingFavicons = document.querySelectorAll('link[rel*="icon"]');
+  existingFavicons.forEach((link) => link.remove());
+
+  // Create and add the new favicon link
+  const faviconLink = document.createElement("link");
+  faviconLink.rel = "icon";
+  faviconLink.type = "image/png";
+  faviconLink.href = "media/favicon.png";
+
+  // Insert at the beginning of head for priority
+  document.head.insertBefore(faviconLink, document.head.firstChild);
+}
+
 // Run on DOMContentLoaded
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", injectHeaderFooter);
+  document.addEventListener("DOMContentLoaded", () => {
+    setFavicon();
+    injectHeaderFooter();
+  });
 } else {
+  setFavicon();
   injectHeaderFooter();
 }
