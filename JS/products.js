@@ -72,7 +72,6 @@ async function displayProducts(pageNumber = 1) {
         const myBtn = document.createElement("button");
         myBtn.style.backgroundColor = "#007bff";
         myBtn.style.color = "#fff";
-        // myBtn.className = "btn-main"
         const ratingContainer = document.createElement("div");
         numberOfReviews.innerHTML = products[i].ratingsQuantity + " reviews";
         myBtn.textContent = "Show details";
@@ -148,7 +147,7 @@ function setActiveButton(btn) {
     btn.style.color = "#fff";
     currentActiveBtn = btn;
 }
-function createPaginationButtons(totalPages = 7) {
+function createPagesBtns(totalPages = 7) {
     const buttonsDiv = document.createElement("div");
     buttonsDiv.style.cssText = `
         display: flex;
@@ -171,4 +170,4 @@ function createPaginationButtons(totalPages = 7) {
     document.body.insertBefore(buttonsDiv, document.getElementById("footer"));
 }
 
-createPaginationButtons();
+createPagesBtns();
