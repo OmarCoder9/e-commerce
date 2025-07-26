@@ -2,8 +2,9 @@
     --stars-color: #de7921;
     --empty-stars-color: #ccc;
     --loading-bg:rgba(255,255,255,0.8);
-    --main-color: #007bff;
-
+    --main-color: rgb(0, 123, 255);
+    --btn-main-color: rgba(0, 123, 255, 0.7);
+    --inner-btn-color: #fff;
 }
 .star-color{
     color: var(--stars-color);
@@ -16,6 +17,16 @@
 }
 .main-color{
     color: var(--main-color);
+}
+.btn-main{
+    background-color: var(--btn-main-color);
+    color: var(--inner-btn-color);
+}
+.page-selector{
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--empty-stars-color);
+    cursor: pointer;
 }
 .w-1em{
     width: 1em;

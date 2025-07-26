@@ -70,6 +70,9 @@ async function displayProducts(pageNumber = 1) {
         const proPrice = document.createElement("p");
         const numberOfReviews = document.createElement("p");
         const myBtn = document.createElement("button");
+        myBtn.style.backgroundColor = "#007bff";
+        myBtn.style.color = "#fff";
+        // myBtn.className = "btn-main"
         const ratingContainer = document.createElement("div");
         numberOfReviews.innerHTML = products[i].ratingsQuantity + " reviews";
         myBtn.textContent = "Show details";
@@ -147,18 +150,15 @@ function setActiveButton(btn) {
 }
 function createPaginationButtons(totalPages = 7) {
     const buttonsDiv = document.createElement("div");
-    buttonsDiv.style.display = "flex";
-    buttonsDiv.style.justifyContent = "center";
-    buttonsDiv.style.gap = "10px";
-    buttonsDiv.style.marginBottom = "30px";
-
+    buttonsDiv.style.cssText = `
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;`;
     for (let i = 1; i <= totalPages; i++) {
         const btn = document.createElement("button");
         btn.textContent = `${i}`;
-        btn.style.cssText = `padding: 8px 16px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            cursor: pointer;`
+        btn.className = "page-selector";
         btn.addEventListener("click", () => {
             displayProducts(i);
             setActiveButton(btn);
