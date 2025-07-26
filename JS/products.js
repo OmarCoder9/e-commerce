@@ -26,18 +26,19 @@ function renderStars(container, rating, maxStars = 5) {
         if (rating >= i) {
         // Full star
         star.innerHTML = '★';
-        star.style.color = '#de7921';
-        } else if (rating > i - 1 && rating < i) {
+        star.className = "star-color";
+    } else if (rating > i - 1 && rating < i) {
         // Partial star (for decimals)
         const percent = (rating - (i - 1)) * 100;
         star.innerHTML = `<span class = "position-relative d-inline-block w-1em">
-            <span style="color:#de7921;position:absolute;width:${percent}%;overflow:hidden;">★</span>
-            <span style="color:#ccc;">★</span>
+        <span class = "position-absolute overflow-hidden star-color" style="width:${percent}%;">★</span>
+        <span class = "empty-color">★</span>
         </span>`;
-        } else {
+    } else {
         // Empty star
         star.innerHTML = '★';
-        star.style.color = '#ccc';
+        // star.style.color = '#ccc';
+        star.className = "empty-color";
         }
         container.appendChild(star);
     }
@@ -54,11 +55,8 @@ async function displayProducts(pageNumber = 1) {
     const products = result.data;
     const myDiv = document.getElementById("main");
     const myProducts = document.createElement("div");
-    myProducts.style.width = "100%";
-    myProducts.style.marginBottom = "50px";
-    myProducts.style.marginTop = "50px";
-    myProducts.className = "d-flex container";
-    myProducts.justifyContent = "space-around";
+    myProducts.className = "d-flex container w-100 my-5 justify-content-around flex-wrap";
+    // myProducts.justifyContent = "space-around";
     for (let i = 0; i < products.length; i++) {
         const myProduct = document.createElement("div");
         myProduct.className = "oneProduct";
@@ -66,7 +64,8 @@ async function displayProducts(pageNumber = 1) {
         const myPic = document.createElement("div");
         let content = `<img src="${products[i].images[0]}" alt="product image">`;
         myPic.innerHTML = content;
-        myPic.style.width = "100%";
+        // myPic.style.width = "100%";
+        myPic.className = "w-100";
         myProduct.appendChild(myPic);
         myProducts.appendChild(myProduct);
         const infoDiv = document.createElement("div");
@@ -77,7 +76,7 @@ async function displayProducts(pageNumber = 1) {
         const ratingContainer = document.createElement("div");
         numberOfReviews.innerHTML = products[i].ratingsQuantity + " reviews";
         myBtn.textContent = "Show details";
-        myBtn.style.width = "100%"
+        myBtn.className = "w-100";
         myBtn.style.borderRadius = "16px";
         myBtn.addEventListener("click", ()=>{
             window.location.href = `/product.html?id=${products[i]._id}`
@@ -89,26 +88,25 @@ async function displayProducts(pageNumber = 1) {
         myPic.style.gridRowStart = "1";
         myPic.style.gridRowEnd = "2";
         infoDiv.style.gridRowStart = "2";
-        infoDiv.style.paddingLeft = "16px";
-        infoDiv.style.paddingRight = "16px";
+        infoDiv.className = "px-3"
         renderStars(ratingContainer, products[i].ratingsAverage)
         ratingContainer.appendChild(numberOfReviews);
-        ratingContainer.style.display = "flex";
+        ratingContainer.className = "d-flex";
         infoDiv.appendChild(proName);
         infoDiv.appendChild(proPrice);
         infoDiv.appendChild(ratingContainer)
         infoDiv.appendChild(myBtn);
         myProduct.appendChild(infoDiv);
     }
-    myProducts.style.display = "flex";
-    myProducts.style.flexWrap = "wrap";
+    // myProducts.style.flexWrap = "wrap";
     myProducts.style.gap = "30px";
     myDiv.appendChild(myProducts);
     const imgs = myProducts.getElementsByTagName("img");
     Array.from(imgs).forEach((img) => {
-        img.style.width = "100%";
-        img.style.height = "auto";
-        img.style.display = "block";
+        // img.style.width = "100%";
+        // img.style.height = "auto";
+        // img.style.display = "block";
+        img.className = "img-fluid d-block"
         img.style.objectFit = "contain";
     });
 }
@@ -119,18 +117,20 @@ function showLoading() {
     if (!loadingDiv) {
         loadingDiv = document.createElement("div");
         loadingDiv.id = "loading-screen";
-        loadingDiv.style.position = "fixed";
-        loadingDiv.style.top = "0";
-        loadingDiv.style.left = "0";
         loadingDiv.style.width = "100vw";
         loadingDiv.style.height = "100vh";
-        loadingDiv.style.background = "rgba(255,255,255,0.8)";
+        // loadingDiv.style.position = "fixed";
+        // loadingDiv.style.top = "0";
+        // loadingDiv.style.left = "0";
+        // loadingDiv.style.background = "rgba(255,255,255,0.8)";
+        // loadingDiv.style.zIndex = "9999";
         loadingDiv.style.display = "flex";
-        loadingDiv.style.alignItems = "center";
-        loadingDiv.style.justifyContent = "center";
-        loadingDiv.style.zIndex = "9999";
-        loadingDiv.innerHTML = `<div style="font-size:2rem;color:#007bff;">
-            <span class="spinner-border" style="width:3rem;height:3rem;vertical-align:middle;"></span>
+        // loadingDiv.style.alignItems = "center";
+        // loadingDiv.style.justifyContent = "center";
+        // loadingDiv.className = "position-fixed top-0 start-0"
+        loadingDiv.className = "position-fixed top-0 start-0 align-items-center justify-content-center z-3 load-bg"
+        loadingDiv.innerHTML = `<div class = "fs-2 main-color">
+            <span class="spinner-border align-middle" style="width:3rem;height:3rem;"></span>
             Loading...
         </div>`;
         document.body.appendChild(loadingDiv);
@@ -160,19 +160,19 @@ function setActiveButton(btn) {
     currentActiveBtn = btn;
 }
 function createPaginationButtons(totalPages = 7) {
-    const paginationDiv = document.createElement("div");
-    paginationDiv.style.display = "flex";
-    paginationDiv.style.justifyContent = "center";
-    paginationDiv.style.gap = "10px";
-    paginationDiv.style.marginBottom = "30px";
+    const buttonsDiv = document.createElement("div");
+    buttonsDiv.style.display = "flex";
+    buttonsDiv.style.justifyContent = "center";
+    buttonsDiv.style.gap = "10px";
+    buttonsDiv.style.marginBottom = "30px";
 
     for (let i = 1; i <= totalPages; i++) {
         const btn = document.createElement("button");
         btn.textContent = `${i}`;
-        btn.style.padding = "8px 16px";
-        btn.style.borderRadius = "8px";
-        btn.style.border = "1px solid #ccc";
-        btn.style.cursor = "pointer";
+        btn.style.cssText = `padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            cursor: pointer;`
         btn.addEventListener("click", () => {
             displayProducts(i);
             setActiveButton(btn);
@@ -180,9 +180,9 @@ function createPaginationButtons(totalPages = 7) {
         if (i === 1) {
             setActiveButton(btn);
         }
-        paginationDiv.appendChild(btn);
+        buttonsDiv.appendChild(btn);
     }
-    document.body.insertBefore(paginationDiv, document.getElementById("footer"));
+    document.body.insertBefore(buttonsDiv, document.getElementById("footer"));
 }
 
 createPaginationButtons();

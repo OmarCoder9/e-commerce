@@ -1,3 +1,22 @@
+:root{
+    --stars-color: #de7921;
+    --empty-stars-color: #ccc;
+    --loading-bg:rgba(255,255,255,0.8);
+    --main-color: #007bff;
+
+}
+.star-color{
+    color: var(--stars-color);
+}
+.empty-color{
+    color: var(--empty-stars-color);
+}
+.load-bg{
+    background-color: var(--loading-bg);
+}
+.main-color{
+    color: var(--main-color);
+}
 .w-1em{
     width: 1em;
 }
