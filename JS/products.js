@@ -37,7 +37,6 @@ function renderStars(container, rating, maxStars = 5) {
     } else {
         // Empty star
         star.innerHTML = '★';
-        // star.style.color = '#ccc';
         star.className = "empty-color";
         }
         container.appendChild(star);
@@ -56,7 +55,6 @@ async function displayProducts(pageNumber = 1) {
     const myDiv = document.getElementById("main");
     const myProducts = document.createElement("div");
     myProducts.className = "d-flex container w-100 my-5 justify-content-around flex-wrap";
-    // myProducts.justifyContent = "space-around";
     for (let i = 0; i < products.length; i++) {
         const myProduct = document.createElement("div");
         myProduct.className = "oneProduct";
@@ -64,7 +62,6 @@ async function displayProducts(pageNumber = 1) {
         const myPic = document.createElement("div");
         let content = `<img src="${products[i].images[0]}" alt="product image">`;
         myPic.innerHTML = content;
-        // myPic.style.width = "100%";
         myPic.className = "w-100";
         myProduct.appendChild(myPic);
         myProducts.appendChild(myProduct);
@@ -98,14 +95,11 @@ async function displayProducts(pageNumber = 1) {
         infoDiv.appendChild(myBtn);
         myProduct.appendChild(infoDiv);
     }
-    // myProducts.style.flexWrap = "wrap";
     myProducts.style.gap = "30px";
     myDiv.appendChild(myProducts);
     const imgs = myProducts.getElementsByTagName("img");
     Array.from(imgs).forEach((img) => {
-        // img.style.width = "100%";
-        // img.style.height = "auto";
-        // img.style.display = "block";
+
         img.className = "img-fluid d-block"
         img.style.objectFit = "contain";
     });
@@ -119,15 +113,7 @@ function showLoading() {
         loadingDiv.id = "loading-screen";
         loadingDiv.style.width = "100vw";
         loadingDiv.style.height = "100vh";
-        // loadingDiv.style.position = "fixed";
-        // loadingDiv.style.top = "0";
-        // loadingDiv.style.left = "0";
-        // loadingDiv.style.background = "rgba(255,255,255,0.8)";
-        // loadingDiv.style.zIndex = "9999";
         loadingDiv.style.display = "flex";
-        // loadingDiv.style.alignItems = "center";
-        // loadingDiv.style.justifyContent = "center";
-        // loadingDiv.className = "position-fixed top-0 start-0"
         loadingDiv.className = "position-fixed top-0 start-0 align-items-center justify-content-center z-3 load-bg"
         loadingDiv.innerHTML = `<div class = "fs-2 main-color">
             <span class="spinner-border align-middle" style="width:3rem;height:3rem;"></span>
