@@ -43,11 +43,14 @@ function renderStars(container, rating, maxStars = 5) {
     }
 }
 async function displayProducts(pageNumber = 1) {
+    showLoading()
     const result = await fetchData(pageNumber);
     if (!result || !result.data) {
         console.error("No product data found");
     return;
     }
+    hideLoading()
+    document.getElementById("main").innerHTML = "";
     const products = result.data;
     const myDiv = document.getElementById("main");
     const myProducts = document.createElement("div");
@@ -111,7 +114,42 @@ async function displayProducts(pageNumber = 1) {
 }
 displayProducts();
 let currentActiveBtn = null;
+function showLoading() {
+    let loadingDiv = document.getElementById("loading-screen");
+    if (!loadingDiv) {
+        loadingDiv = document.createElement("div");
+        loadingDiv.id = "loading-screen";
+        loadingDiv.style.position = "fixed";
+        loadingDiv.style.top = "0";
+        loadingDiv.style.left = "0";
+        loadingDiv.style.width = "100vw";
+        loadingDiv.style.height = "100vh";
+        loadingDiv.style.background = "rgba(255,255,255,0.8)";
+        loadingDiv.style.display = "flex";
+        loadingDiv.style.alignItems = "center";
+        loadingDiv.style.justifyContent = "center";
+        loadingDiv.style.zIndex = "9999";
+        loadingDiv.innerHTML = `<div style="font-size:2rem;color:#007bff;">
+            <span class="spinner-border" style="width:3rem;height:3rem;vertical-align:middle;"></span>
+            Loading...
+        </div>`;
+        document.body.appendChild(loadingDiv);
+    }
+    loadingDiv.style.display = "flex";
+}
 
+function hideLoading() {
+    const loadingDiv = document.getElementById("loading-screen");
+    if (loadingDiv) {
+        loadingDiv.style.display = "none";
+    }
+}
+
+// Patch displayProducts to show/hide loading
+const originalDisplayProducts = displayProducts;
+displayProducts = async function(pageNumber = 1) {
+    await originalDisplayProducts(pageNumber);
+};
 function setActiveButton(btn) {
     if (currentActiveBtn) {
         currentActiveBtn.style.backgroundColor = "";
@@ -136,7 +174,6 @@ function createPaginationButtons(totalPages = 7) {
         btn.style.border = "1px solid #ccc";
         btn.style.cursor = "pointer";
         btn.addEventListener("click", () => {
-            document.getElementById("main").innerHTML = "";
             displayProducts(i);
             setActiveButton(btn);
         });
