@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #10151c;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.background {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+}
+
+.login-container {
+  /* background: #1c2128;  */
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* ظل خفيف عصري */
+  transition: transform 0.3s ease;
+}
+
+.login-container:hover {
+  transform: scale(1.01); /* حركة خفيفة عند مرور الماوس */
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #58a6ff; /* أزرق جيمنج */
+}
+
+.login-container input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 8px;
+  /* background-color: #0d1117; */
+  background-color: white;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+
+
+.login-container button {
+  background: linear-gradient(135deg, #3b82f6, #1e40af); 
+  color: white;
+  width: 50%;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+
+  transition: all 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #1e40af; 
+  transform: translateY(-2px); 
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-container p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #8b949e;
+}
+
+.login-container a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
