@@ -5,6 +5,12 @@
   --accent-color: #ff00cc;
   --text-color: #f4f4f4;
   --font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+
+  --stars-color: #de7921;
+}
+
+.star-color {
+  color: var(--stars-color);
 }
 
 body {
