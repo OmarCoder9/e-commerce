@@ -12,6 +12,72 @@
   </head>
   <body>
     <div id="header"></div>
+    
+    <!-- Filter Section -->
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0"><i class="bi bi-funnel"></i> Filter Products</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <!-- Search -->
+                <div class="col-md-3 mb-3">
+                  <label for="searchInput" class="form-label">Search Products</label>
+                  <input type="text" class="form-control" id="searchInput" placeholder="Search by name...">
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="col-md-3 mb-3">
+                  <label for="categoryFilter" class="form-label">Category</label>
+                  <select class="form-select" id="categoryFilter">
+                    <option value="">All Categories</option>
+                  </select>
+                </div>
+                
+                <!-- Price Range -->
+                <div class="col-md-3 mb-3">
+                  <label for="priceRange" class="form-label">Price Range</label>
+                  <select class="form-select" id="priceRange">
+                    <option value="">All Prices</option>
+                    <option value="0-100">Under 100 EGP</option>
+                    <option value="100-500">100 - 500 EGP</option>
+                    <option value="500-1000">500 - 1000 EGP</option>
+                    <option value="1000+">Over 1000 EGP</option>
+                  </select>
+                </div>
+                
+                <!-- Rating Filter -->
+                <div class="col-md-3 mb-3">
+                  <label for="ratingFilter" class="form-label">Minimum Rating</label>
+                  <select class="form-select" id="ratingFilter">
+                    <option value="">Any Rating</option>
+                    <option value="4">4+ Stars</option>
+                    <option value="3">3+ Stars</option>
+                    <option value="2">2+ Stars</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!-- Filter Actions -->
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-primary me-2" id="applyFilters">
+                    <i class="bi bi-search"></i> Apply Filters
+                  </button>
+                  <button class="btn btn-outline-secondary" id="clearFilters">
+                    <i class="bi bi-x-circle"></i> Clear Filters
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div id="main"></div>
     <div id="footer"></div>
     <script src="JS/root.js"></script>
