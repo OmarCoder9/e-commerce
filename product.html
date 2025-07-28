@@ -1,25 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GameVerse - Product</title>
-    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  </head>
-  <body>
-    <div id="header"></div>
-    <p>Hello user</p>
-    <script>
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const productId = urlParams.get("id");
-      console.log("product id: " + productId);
-    </script>
-    <div id="footer"></div>
-    <script src="JS/root.js"></script>
-    <script src="JS/bootstrap.bundle.min.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Masters</title>
+    <link rel="icon" type="image/png" href="Images/favicon.png" >
+    <!--Normalize-->
+    <link rel="stylesheet" href="./CSS/normalize.css">
+    <!--Font Awsome-->
+    <link rel="stylesheet" href="./CSS/all.min.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/Game-product-page.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-gamepad"></i>
+                <span><span>Game</span>Masters</span>
+            </a>
+            <div class="pages-box">
+                <i class="fas fa-bars" id="toggle-menu">
+                    <i class="fa-solid fa-angle-down" id="menu-arrow"></i>
+                </i>
+                <ul class="pages" id="pages-links">
+                    <div class="col">
+                        <li><a href="index.html" title="Home"><i class="fa-solid fa-house fa-fw"></i>Home</a></li>
+                        <li><a href="playstation.html" title="Playstation"><i class="fa-brands fa-playstation fa-fw"></i>Playstation</a></li>
+                        <li><a href="xbox.html" title="Xbox"><i class="fa-brands fa-xbox fa-fw"></i>Xbox</a></li>
+                        <li><a href="pc.html" title="PC"><i class="fa-solid fa-desktop fa-fw"></i>PC</a></li>
+                        <li><a href="trending.html"><i class="fa-solid fa-fire"></i>Trending</a></li>
+                        <li><a href="support.html" title="Supports"><i class="fa-solid fa-headset fa-fw"></i>Supports</a></li>
+                        <li><a href="about.html" title="About Us"><i class="fa-solid fa-circle-info fa-fw"></i>About Us</a></li>
+                        <li><a href="brands.html" title="Brands"><i class="fa-solid fa-globe fa-fw"></i>Brands</a></li>
+                    </div>
+                    <div class="col">
+                        <li><a href="coming-soon.html" title="coming soon"><i class="fa-solid fa-hourglass-half fa-fw"></i>Coming Soon</a></li>
+                        <li><a href="game-reviews.html" title="Game Reviews"><i class="fa-solid fa-comment fa-fw"></i>Game Reviews</a></li>
+                        <li><a href="gaming-news.html" title="gaming news"><i class="fa-regular fa-newspaper fa-fw"></i>Gaming News</a></li>
+                        <li><a href="hardware.html" title="Hardware"><i class="fa-solid fa-microchip fa-fw"></i>Hardware</a></li>
+                        <li><a href="nintendo.html" title="nintendo"><i class="fa-solid fa-puzzle-piece fa-fw"></i>Nintendo</a></li>
+                        <li><a href="terms.html" title="nintendo"><i class="fa-solid fa-file fa-fw"></i>Terms</a></li>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="rightOptions">
+                <div class="profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Account</span>
+                    <ul class="acc">
+                        <li><a href="profile.html"><i class="fa-solid fa-circle-user"></i>Profile</a></li>
+                        <li><a href="signin.html"><i class="fa-solid fa-arrow-right-to-bracket fa-flip-horizontal" id="sign-in-or-out"></i>Sign In</a></li>
+                    </ul>
+                </div>
+                
+                <a href="cart.html" class="cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-counter">0</span>
+                </a>
+                <div class="theme-mode" id="theme">
+                    <i class="fa-solid fa-moon fa-fw" id="theme-icon" ></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+<!-- =======================Start Your Page Here======================= -->
+<div class="container">
+<!-- Game Products -->
+<div class="product-container">
+<!-- Game Details Section -->
+
+
+<div class="game-details">
+
+<div class="card">
+<img src="" id="game-img" alt="WWE 2K23 - PS5"> 
+</div>
+
+
+  <div class="game-content">
+    <h2 class="game-title" id="game-name"></h2>
+    <div class="rating">
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+    </div>
+    <p class="game-price" id="game-price"></p>
+    <div class="quantity">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1">
+  </div>
+    <button class="add-to-cart-btn">Add To Cart</button>
+  </div>
+
+
+<div class="extra-info-container">
+  <h2>Game Details</h2>
+  <ul class="extra-info-list">
+    <li><strong>Genre:</strong> <span id="game-genre">-</span></li>
+    <li><strong>Developer:</strong> <span id="game-developer">-</span></li>
+
+  </ul>
+</div>
+
+
+
+</div>
+
+<div class="game-desc" >
+<strong>Description:</strong>
+  <p id="game-desc">
+</div>
+
+</div>
+      <!-- Related Products Section -->
+      <div class="related-products">
+        <h2 class="section-title">Related Products</h2>
+    <!-- Game 2 -->   
+        <div class="listgames">
+          <a href="https://www.google.com/search?q=FIFA+23+Standard+Edition+English+PS5" target="_blank">
+            <img src="https://api.egyptgamestore.com/uploads/products/xYdTVlc5y1olAJ9xgkDSPgJvdmVk7nh9paEF7Xhx.jpg" alt="FIFA 23 Standard Edition English - PS5">
+            <div class="caption">
+              <p class="more-details">&quot;Click here for more details&quot;</p>
+            </div>
+          </a>
+          <div class="game-content">
+            <h2 class="game-title"></h2>
+            <div class="rating">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+            <p class="game-price">$30</p>
+            <button gameid="2" gamename="FIFA 23 Standard Edition English - PS5" gameprice="$30" gameimage="https://api.egyptgamestore.com/uploads/products/xYdTVlc5y1olAJ9xgkDSPgJvdmVk7nh9paEF7Xhx.jpg" class="add-to-cart-related">Add To Cart</button>
+          </div>
+          <!-- Table for FIFA 23 -->
+          <div class="advanced-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Age</th>
+                  <th>Date of Publishing</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>12+</td>
+                  <td>September 2022</td>
+                  <td>UK</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+                
+        <!-- Game 3 -->
+        <div class="listgames">
+          <a href="https://www.google.com/search?q=PlayStation+5+Console+Disc+Version" target="_blank">
+            <img src="https://api.egyptgamestore.com/uploads/products/JzxnZpASkH4oiJlRmZqjVV2MzdRTFArGmt1VpLpd.jpg" alt="PlayStation 5 Console (Disc Version)">
+            <div class="caption">
+              <p class="more-details">&quot;Click here for more details&quot;</p>
+            </div>
+          </a>
+          <div class="game-content">
+            <h2 class="game-title">PlayStation 5 Console (Disc Version)</h2>
+            <div class="rating">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+            <p class="game-price">$120</p>
+            <button gameid="3" gamename="PlayStation 5 Console (Disc Version)" gameprice="$120" gameimage="https://api.egyptgamestore.com/uploads/products/JzxnZpASkH4oiJlRmZqjVV2MzdRTFArGmt1VpLpd.jpg" class="add-to-cart-related">Add To Cart</button>
+          </div>
+          <!--  Table for PlayStation 5 Console (Disc Version) -->
+          <div class="advanced-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Age</th>
+                  <th>Date of Publishing</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>18+</td>
+                  <td>November 2020</td>
+                  <td>Japan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Game 4 -->
+        <div class="listgames">
+          <a href="https://www.google.com/search?q=Marvels+Spider-Man+Remastered" target="_blank">
+            <img src="https://api.egyptgamestore.com/uploads/products/TZ7psVB2Hy6aOE4aks0kN2eBO5QheFBtytwIQHQx.jpg" alt="Marvel's Spider-Man Remastered">
+            <div class="caption">
+              <p class="more-details">&quot;Click here for more details&quot;</p>
+            </div>
+          </a>
+          <div class="game-content">
+            <h2 class="game-title">Marvel's Spider-Man Remastered</h2>
+            <div class="rating">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+            <p class="game-price">$100</p>
+            <button gameid="4" gamename="Marvel's Spider-Man Remastered" gameprice="$100" gameimage="https://api.egyptgamestore.com/uploads/products/TZ7psVB2Hy6aOE4aks0kN2eBO5QheFBtytwIQHQx.jpg" class="add-to-cart-related">Add To Cart</button>
+          </div>
+          <!--  Table for Marvel's Spider-Man Remastered -->
+          <div class="advanced-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Age</th>
+                  <th>Date of Publishing</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>16+</td>
+                  <td>November 2020</td>
+                  <td>USA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+          <!-- Game 5 -->
+        <div class="listgames">
+          <a href="https://www.google.com/search?q=TOM+Clancy+Ghost+Recon+Break+Point+Arabic+PS4" target="_blank">
+            <img src="https://api.egyptgamestore.com/uploads/products/DCg6m5kVQc70xQXW0TTqwDVeiOqheGi3iS8QqGE2.jpg" alt="TOM Clancy Ghost Recon Break Point Arabic PS4">
+            <div class="caption">
+              <p class="more-details">&quot;Click here for more details&quot;</p>
+            </div>
+          </a>
+          <div class="game-content">
+            <h2 class="game-title">TOM Clancy Ghost Recon Break Point Arabic PS4</h2>
+            <div class="rating">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+            <p class="game-price">$70</p>
+            <button gameid="5" gamename="TOM Clancy Ghost Recon Break Point Arabic PS4" gameprice="$70" gameimage="https://api.egyptgamestore.com/uploads/products/DCg6m5kVQc70xQXW0TTqwDVeiOqheGi3iS8QqGE2.jpg" class="add-to-cart-related">Add To Cart</button>
+          </div>
+          <!-- Table for TOM Clancy Ghost Recon Break Point Arabic PS4 -->
+          <div class="advanced-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Age</th>
+                  <th>Date of Publishing</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>18+</td>
+                  <td>October 2019</td>
+                  <td>USA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="./JS/game-page.js"></script>
+
+
+<!-- =======================End Your Page Here======================= -->
+
+    <footer>
+        <div class="container">
+            <div class="box">
+                <h3>Game Masters</h3>
+                <ul class="social">
+                    <li><a href="https://www.facebook.com/" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://twitter.com/" class="twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://www.youtube.com/" class="youtube"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+                <p class="text">
+                    Explore endless worlds of gaming adventure with GameStore. Discover the latest releases, join our community, and level up your gaming experience today.
+                </p>
+            </div>
+            <div class="box">
+                <div class="line">
+                    <i class="fas fa-map-marker-alt fa-fw"></i>
+                    <div class="info">Egypt, Cairo, Helwan University, Faculty of Computer Science and Artificial Intelligence</div>
+                </div>
+                <div class="line">
+                    <i class="far fa-clock fa-fw"></i>
+                    <div class="info">Business Hours: From 10:00 To 18:00</div>
+                </div>
+                <div class="line">
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="info">
+                    <span>+20123453459</span>
+                    <span>+20173765432</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>Copyright &copy; 2024 GameMasters. All rights reserved.</p>
+    </footer>
+    <script src="./JS/main.js"></script>
+</body>
 </html>
