@@ -9,6 +9,7 @@ body {
 }
 .background {
   background: linear-gradient(135deg, #3b82f6, #1e40af);
+  
 }
 
 .login-container {
@@ -19,17 +20,17 @@ body {
   width: 100%;
   max-width: 360px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* ظل خفيف عصري */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
 }
 
 .login-container:hover {
-  transform: scale(1.01); /* حركة خفيفة عند مرور الماوس */
+  transform: scale(1.04);
 }
 
 .login-container h2 {
   margin-bottom: 20px;
-  color: #58a6ff; /* أزرق جيمنج */
+  color: #3b82f6;
 }
 
 .login-container input {
@@ -51,9 +52,8 @@ body {
   box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
 }
 
-
 .login-container button {
-  background: linear-gradient(135deg, #3b82f6, #1e40af); 
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
   color: white;
   width: 50%;
   font-weight: 600;
@@ -65,14 +65,14 @@ body {
 }
 
 .login-container button:hover {
-  background-color: #1e40af; 
-  transform: translateY(-2px); 
+  background-color: #1e40af;
+  transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .login-container p {
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 16px;
   color: #8b949e;
 }
 
