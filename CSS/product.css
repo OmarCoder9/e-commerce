@@ -1,4 +1,4 @@
-:root {
+/*:root {
   --dark:#2a2f3a;
   --main-color:#1abc9c;
   --main-color-hover: #159c89;
@@ -10,7 +10,7 @@
   --border-dashed: #333;
   --table-header-bg: #333;
   --box-shadow: rgba(0, 0, 0, 0.2);
-}
+}*/
 
 h1 {
   text-align: center;
@@ -18,6 +18,10 @@ h1 {
 }
 .product-container {
   margin-top: 50px;
+  background: var(--background-color, #181a20);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 32px 0;
 }
 
 
@@ -37,27 +41,37 @@ h1 {
 
 #game-img {
   width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
-}
-#game-img:hover {
-  transform: scale(1.02);
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  background: #222;
 }
 
 
 
 /* Game Details Styles */
 .game-details {
-  color:antiquewhite;
   display: flex;
-  background-color: var(--dark);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 auto; 
+  gap: 32px;
+  background: var(--secondary-color, #1f2233);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 32px;
+  color: var(--text-color, #f4f4f4);
+  align-items: flex-start;
+}
+
+.game-details .card {
+  background: var(--dark);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.16);
+  padding: 0;
+  margin: 0;
+  width: 320px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .game-details img {
@@ -66,18 +80,23 @@ h1 {
 }
 
 .game-title {
-  margin-top: 0;
-  margin-left: 0px;
+  font-size: 2rem;
+  color: var(--primary-color, #00ffea);
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .rating {
-   color: var(--gold);
-  margin-bottom: 10px;
+  color: var(--stars-color, #de7921);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
 }
 
 .game-price {
+  font-size: 1.3rem;
   font-weight: bold;
-  margin-bottom: 15px;
+  color: var(--accent-color, #ff00cc);
+  margin-bottom: 10px;
 }
 /* Quantity Input Styles */
 .quantity {
@@ -85,51 +104,56 @@ h1 {
 }
 
 .quantity label {
+  color: var(--primary-color, #00ffea);
+  font-weight: 600;
   margin-right: 10px;
-  font-weight: bold; 
-  font-size: 16px; 
 }
 
 .quantity input[type="number"] {
-  width: 60px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color, #00ffea);
+  padding: 6px 10px;
+  background: var(--background-color, #181a20);
+  color: var(--text-color, #f4f4f4);
+  width: 70px;
 }
 
 /* Add some space between quantity and add to cart button */
 .add-to-cart-btn {
-  margin-top: 50px;
-  background-color: var(--main-color);
-  color: #fff;
+  margin-top: 24px;
+  background: linear-gradient(135deg, var(--primary-color, #00ffea), var(--accent-color, #ff00cc));
+  color: #181a20;
   font-weight: bold;
   border: none;
-  padding: 12px 25px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 14px 0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .add-to-cart-btn:hover {
-   background-color: var(--main-color-hover);
+  background: var(--accent-color, #ff00cc);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
 }
 
 
 .extra-info-container {
-  background: #1e1e2f;
+  background: var(--secondary-color, #1f2233);
   padding: 20px 30px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   margin-top: 40px;
-  color: #fff;
-  font-family: 'Segoe UI', sans-serif;
+  color: var(--text-color, #f4f4f4);
+  font-family: var(--font-family, 'Segoe UI', sans-serif);
 }
 
 .extra-info-container h2 {
-  font-size: 24px;
+  font-size: 1.3rem;
   margin-bottom: 15px;
   border-bottom: 1px solid #444;
   padding-bottom: 8px;
-  color: var(--accent-color);
+  color: var(--primary-color, #00ffea);
 }
 
 .extra-info-list {
@@ -143,7 +167,7 @@ h1 {
   justify-content: space-between;
   border-bottom: 1px dashed #333;
   padding: 10px 0;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .extra-info-list li:last-child {
@@ -151,14 +175,14 @@ h1 {
 }
 
 .extra-info-list strong {
-  color: #ccc;
+  color: var(--accent-color, #ff00cc);
   width: 40%;
 }
 
 .extra-info-list span {
-  color: #fff;
-  text-align: center;
+  color: var(--text-color, #f4f4f4);
   width: 60%;
+  text-align: left;
 }
 
 
@@ -177,18 +201,17 @@ h1 {
 }
 
 .game-desc {
-  background-color: var(--dark);
-  color: var(--light-text);
- font-size: 18px;
-  line-height: 1.6; 
-  padding: 20px 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  max-width: 1000px;
-  margin: 0 auto 40px auto; 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: background-color 0.3s ease;
-  margin-top: 30px;
+  background: var(--secondary-color, #1f2233);
+  color: var(--text-color, #f4f4f4);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding: 24px 32px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  max-width: 900px;
+  margin: 32px auto 40px auto;
+  font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+  transition: background 0.3s;
 }
 .video-container {
   height: 700px;
@@ -292,4 +315,46 @@ iframe {
 
 .advanced-table th {
   background-color: var(--table-header-bg);
+}
+
+
+
+footer.bg-light {
+  background-color: var(--dark) !important;
+  color: var(--light-text);
+}
+
+footer h5 {
+  color: var(--main-color);
+}
+
+footer p {
+  color: var(--light-text);
+  font-size: 14px;
+}
+
+footer a.footer-link {
+  color: var(--light-text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a.footer-link:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+footer .social-link {
+  font-size: 20px;
+  color: var(--light-text);
+  transition: color 0.3s;
+}
+
+footer .social-link:hover {
+  color: var(--accent-color);
+}
+
+footer .bg-primary {
+  background-color: var(--main-color) !important;
+  color: var(--white) !important;
 }
