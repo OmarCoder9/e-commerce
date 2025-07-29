@@ -1,15 +1,31 @@
 document.getElementById("loginForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // علشان المفيش reload
+  e.preventDefault();
 
-  const email = document.querySelector("input[type='email']").value;
+  const email = document.querySelector("input[type='email']").value.trim();
   const password = document.querySelector("input[type='password']").value;
 
-  // هنا ممكن تضيف تحقق حقيقي من بيانات مسجلة
-  if (email === "admin@gaming.com" && password === "123456") {
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const matchedUser = users.find(
+    (user) => user.email === email && user.password === password
+  );
+
+  if (matchedUser) {
+  
+    localStorage.setItem(
+      "loggedInUser",
+      JSON.stringify({
+        email: matchedUser.email,
+        fullName: matchedUser.fullName,
+      })
+    );
+
     alert("Login successful!");
-    
     window.location.href = "index.html";
   } else {
-    alert("Invalid credentials!");
+    alert("Invalid email or password.");
   }
 });
+
+
+

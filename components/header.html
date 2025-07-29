@@ -10,13 +10,15 @@
       data-bs-target="#navbarNav"
       aria-controls="navbarNav"
       aria-expanded="false"
-      aria-label="Toggle navigation">
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul
         class="navbar-nav mx-auto gap-2"
-        style="flex: 1; justify-content: center">
+        style="flex: 1; justify-content: center"
+      >
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home</a>
         </li>
@@ -29,21 +31,35 @@
       </ul>
       <ul
         class="navbar-nav ms-auto flex-row align-items-center gap-2"
-        style="margin-left: 0">
+        style="margin-left: 0"
+      >
         <li class="nav-item">
           <a
             class="nav-link d-flex align-items-center"
             href="cart.html"
-            title="View Cart">
+            title="View Cart"
+          >
             <i class="bi bi-cart3 fs-5"></i>
           </a>
         </li>
-        <li class="nav-item">
+
+        <!-- Show when not logged in -->
+        <li class="nav-item" id="nav-login">
           <a class="btn btn-outline-primary px-3" href="login.html">Login</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-register">
           <a class="btn btn-primary px-3 text-dark fw-bold" href="register.html"
             >Register</a
+          >
+        </li>
+
+        <!-- Show when logged in -->
+        <li class="nav-item d-none" id="nav-greeting">
+          <span class="nav-link fw-bold text-dark" id="greetingText"></span>
+        </li>
+        <li class="nav-item d-none" id="nav-logout">
+          <a class="btn btn-danger px-3 fw-bold" href="#" onclick="logout()"
+            >Logout</a
           >
         </li>
       </ul>

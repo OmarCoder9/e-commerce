@@ -53,3 +53,38 @@ if (document.readyState === "loading") {
   setFavicon();
   injectHeaderFooter();
 }
+
+function handleNavbarState() {
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  const loginLink = document.getElementById("nav-login");
+  const registerLink = document.getElementById("nav-register");
+  const logoutLink = document.getElementById("nav-logout");
+  const greeting = document.getElementById("nav-greeting");
+  const greetingText = document.getElementById("greetingText");
+
+  if (user) {
+    // Hide login and register buttons
+    loginLink?.classList.add("d-none");
+    registerLink?.classList.add("d-none");
+
+    // Show greeting with user's name and logout button
+    greetingText.textContent = `👋 Hello, ${user.fullName}`;
+    greeting?.classList.remove("d-none");
+    logoutLink?.classList.remove("d-none");
+  }
+}
+
+// Logout function
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+}
+
+// Run after the header is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  setFavicon();
+  injectHeaderFooter().then(() => {
+    handleNavbarState();
+  });
+});
