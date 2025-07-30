@@ -1,267 +1,240 @@
-
+/* Light Theme CSS Conversion */
 
 :root {
-    /* Color Variables */
-    --primary: #007bff;
-    --primary-hover: #0056b3;
-    --secondary: #6c757d;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --light: #f8f9fa;
-    --dark: #343a40;
-    --white: #ffffff;
-    
-    /* Custom Colors */
-    --stars-color: #de7921;
-    --empty-stars-color: #ccc;
-    --loading-bg: rgba(255, 255, 255, 0.8);
-    
-    /* Spacing Variables */
-    --spacer: 1rem;
-    --spacer-0: 0;
-    --spacer-1: 0.25rem;
-    --spacer-2: 0.5rem;
-    --spacer-3: 1rem;
-    --spacer-4: 1.5rem;
-    --spacer-5: 3rem;
-    
-    /* Border Radius */
-    --border-radius: 0.375rem;
-    --border-radius-sm: 0.25rem;
-    --border-radius-lg: 0.5rem;
-    --border-radius-xl: 0.75rem;
-    
-    /* Shadows */
-    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-    
-    /* Transitions */
-    --transition-base: all 0.15s ease-in-out;
-    --transition-fade: opacity 0.15s linear;
-    --transition-collapse: height 0.35s ease;
+  --dark: #ffffff;
+  --main-color: #0d6efd;
+  --main-color-hover: #0b5ed7;
+  --white: #ffffff;
+  --light-text: #212529;
+  --accent-color: #ffc107;
+  --gold: #f1c40f;
+  --border-color: #dee2e6;
+  --border-dashed: #ced4da;
+  --table-header-bg: #f8f9fa;
+  --box-shadow: rgba(0, 0, 0, 0.08);
+  --secondary-color: #f1f3f5;
+  --background-color: #f8f9fa;
+  --primary-color: #0d6efd;
+  --text-color: #212529;
 }
 
-/* Utility Classes */
-.text-primary { color: var(--primary) !important; }
-.text-secondary { color: var(--secondary) !important; }
-.text-success { color: var(--success) !important; }
-.text-info { color: var(--info) !important; }
-.text-warning { color: var(--warning) !important; }
-.text-danger { color: var(--danger) !important; }
-.text-light { color: var(--light) !important; }
-.text-dark { color: var(--dark) !important; }
-.text-white { color: var(--white) !important; }
-
-.bg-primary { background-color: var(--primary) !important; }
-.bg-secondary { background-color: var(--secondary) !important; }
-.bg-success { background-color: var(--success) !important; }
-.bg-info { background-color: var(--info) !important; }
-.bg-warning { background-color: var(--warning) !important; }
-.bg-danger { background-color: var(--danger) !important; }
-.bg-light { background-color: var(--light) !important; }
-.bg-dark { background-color: var(--dark) !important; }
-.bg-white { background-color: var(--white) !important; }
-
-/* Star Rating Colors */
-.star-color {
-    color: var(--stars-color);
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.empty-color {
-    color: var(--empty-stars-color);
+.product-container {
+  margin-top: 50px;
 }
 
-/* Loading Background */
-.load-bg {
-    background-color: var(--loading-bg);
+.card {
+  background-color: var(--white);
+  box-shadow: 0 4px 15px var(--box-shadow);
+  border-radius: 12px;
+  padding: 0;
+  width: 300px;
+  transition: transform 0.3s;
+  margin-right: 60px;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
 }
 
-/* Pagination Styles */
-.page-selector {
-    padding: var(--spacer-2) var(--spacer-3);
-    border-radius: var(--border-radius);
-    border: 1px solid var(--empty-stars-color);
-    cursor: pointer;
-    transition: var(--transition-base);
-    background-color: var(--white);
-    color: var(--dark);
+.card:hover {
+  transform: scale(1.03);
 }
 
-.page-selector:hover {
-    background-color: var(--primary);
-    color: var(--white);
-    border-color: var(--primary);
+#game-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
 }
 
-.page-selector.active {
-    background-color: var(--primary);
-    color: var(--white);
-    border-color: var(--primary);
+#game-img:hover {
+  transform: scale(1.02);
 }
 
-.page-selector:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.game-details {
+  color: var(--text-color);
+  display: flex;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
 }
 
-.page-selector i {
-    font-size: 0.875rem;
+.game-title {
+  margin-top: 0;
+  margin-left: 0;
+  font-weight: bold;
 }
 
-/* Utility Classes */
-.w-1em {
-    width: 1em;
+.rating {
+  color: var(--gold);
+  margin-bottom: 10px;
 }
 
-/* Product Card Styles */
-.oneProduct {
-    transition: var(--transition-base);
-    border-radius: var(--border-radius-xl);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    background-color: var(--white);
-    position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+.game-price {
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
-.oneProduct:hover {
-    transform: scale(1.05);
-    box-shadow: var(--box-shadow-lg);
-    z-index: 10;
+.quantity {
+  margin-top: 10px;
 }
 
-.oneProduct img {
-    transition: var(--transition-base);
-    max-height: 200px;
-    object-fit: contain;
-    width: 100%;
+.quantity label {
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--text-color);
 }
 
-.oneProduct:hover img {
-    transform: scale(1.05);
+.quantity input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--white);
+  color: var(--text-color);
 }
 
-/* Product Info Container */
-.oneProduct > div:not(:first-child) {
-    position: relative;
-    z-index: 2;
-    background-color: var(--white);
-    padding: var(--spacer-3);
-    border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
+.add-to-cart-btn {
+  margin-top: 50px;
+  background-color: var(--main-color);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Show Details Button */
-.oneProduct button {
-    margin-top: calc(-1 * var(--spacer-2));
-    margin-bottom: var(--spacer-3);
-    border-radius: var(--border-radius-lg);
-    transition: var(--transition-base);
+.add-to-cart-btn:hover {
+  background-color: var(--main-color-hover);
 }
 
-.oneProduct button:hover {
-    background-color: var(--primary-hover) !important;
+.extra-info-container {
+  background: var(--secondary-color);
+  padding: 20px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 40px;
+  color: var(--text-color);
 }
 
-/* Filter Section Styles */
-.filter-card {
-    transition: var(--transition-base);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+.extra-info-container h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+  color: var(--main-color);
 }
 
-.filter-card:hover {
-    box-shadow: var(--box-shadow-lg);
+.extra-info-list li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed var(--border-dashed);
+  padding: 10px 0;
+  font-size: 16px;
 }
 
-/* Form Controls */
-.form-control:focus,
-.form-select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+.extra-info-list strong {
+  color: var(--text-color);
+  width: 40%;
 }
 
-/* Buttons */
-.btn-primary {
-    background-color: var(--primary);
-    border-color: var(--primary);
-    transition: var(--transition-base);
+.extra-info-list span {
+  color: var(--text-color);
+  text-align: center;
+  width: 60%;
 }
 
-.btn-primary:hover {
-    background-color: var(--primary-hover);
-    border-color: var(--primary-hover);
+.game-desc {
+  background-color: var(--white);
+  color: var(--text-color);
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 1000px;
+  margin: 30px auto 40px auto;
 }
 
-.btn-outline-secondary {
-    color: var(--secondary);
-    border-color: var(--secondary);
-    transition: var(--transition-base);
+.related-products .section-title {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: var(--text-color);
 }
 
-.btn-outline-secondary:hover {
-    background-color: var(--secondary);
-    border-color: var(--secondary);
-    color: var(--white);
+.listgames {
+  background-color: var(--white);
+  width: calc(25% - 20px);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
 }
 
-/* Alert Styles */
-.alert-info {
-    border-color: var(--primary);
-    color: var(--primary);
-    background-color: rgba(0, 123, 255, 0.1);
+.listgames .game-content {
+  padding: 15px;
+  background-color: var(--white);
 }
 
-.alert-info i {
-    margin-right: var(--spacer-2);
+.add-to-cart-related {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* Loading Animation */
-.filter-loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: var(--spacer-5);
+.add-to-cart-related:hover {
+  background-color: var(--main-color-hover);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .col-md-3 {
-        margin-bottom: var(--spacer-3);
-    }
-    
-    .card-body .row {
-        margin-bottom: var(--spacer-0);
-    }
-    
-    /* Reduce hover effect on mobile */
-    .oneProduct:hover {
-        transform: scale(1.02);
-        box-shadow: var(--box-shadow-lg);
-    }
-    
-    /* Adjust spacing for mobile */
-    .oneProduct > div:not(:first-child) {
-        padding: var(--spacer-2);
-    }
+.advanced-table th,
+.advanced-table td {
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 8px;
+  text-align: center;
 }
 
-/* Card Header Styles */
-.card-header {
-    background-color: var(--primary);
-    color: var(--white);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+.advanced-table th {
+  background-color: var(--table-header-bg);
+  font-weight: bold;
 }
 
-/* Card Body Styles */
-.card-body {
-    background-color: var(--white);
+footer.bg-light {
+  background-color: var(--white) !important;
+  color: var(--text-color);
 }
 
-/* Spacing Utilities */
-.mt-4 { margin-top: var(--spacer-4) !important; }
-.mb-3 { margin-bottom: var(--spacer-3) !important; }
-.me-2 { margin-right: var(--spacer-2) !important; }
-.px-3 { padding-left: var(--spacer-3) !important; padding-right: var(--spacer-3) !important; }
+footer h5 {
+  color: var(--main-color);
+}
+
+footer p,
+footer a.footer-link,
+footer .social-link {
+  color: var(--text-color);
+}
+
+footer a.footer-link:hover,
+footer .social-link:hover {
+  color: var(--accent-color);
+}

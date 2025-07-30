@@ -1,16 +1,16 @@
-/*:root {
-  --dark:#2a2f3a;
-  --main-color:#1abc9c;
-  --main-color-hover: #159c89;
-  --white: #ffffff;
-  --light-text: #f0f0f0;
-  --accent-color: #00ffc3;
-  --gold: #f1c40f;
-  --border-color: #555;
-  --border-dashed: #333;
-  --table-header-bg: #333;
-  --box-shadow: rgba(0, 0, 0, 0.2);
-}*/
+
+:root {
+  --main-color: #00ffea; 
+  --main-color-hover: #00ccbb;
+
+  --background-color: #f8f9fa;
+  --primary-color: #0d6efd;
+  --secondary-color: #ffffff;
+  --accent-color: #3c67a0;
+  --text-color: #212529;
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 
 h1 {
   text-align: center;
@@ -18,10 +18,6 @@ h1 {
 }
 .product-container {
   margin-top: 50px;
-  background: var(--background-color, #181a20);
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  padding: 32px 0;
 }
 
 
@@ -41,37 +37,28 @@ h1 {
 
 #game-img {
   width: 100%;
-  max-width: 320px;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-  background: #222;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+#game-img:hover {
+  transform: scale(1.02);
 }
 
 
 
-/* Game Details Styles */
 .game-details {
+  color:antiquewhite;
   display: flex;
-  gap: 32px;
-  background: var(--secondary-color, #1f2233);
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  padding: 32px;
-  color: var(--text-color, #f4f4f4);
-  align-items: flex-start;
-}
-
-.game-details .card {
-  background: var(--dark);
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.16);
-  padding: 0;
-  margin: 0;
-  width: 320px;
-  min-width: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    justify-content: space-between;
+  gap: 30px;
+  background-color: var(--dark);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; 
 }
 
 .game-details img {
@@ -80,80 +67,72 @@ h1 {
 }
 
 .game-title {
-  font-size: 2rem;
-  color: var(--primary-color, #00ffea);
-  font-weight: 700;
-  margin-bottom: 8px;
+  margin-top: 0;
+  margin-left: 0px;
+
+    color: var(--text-color);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .rating {
-  color: var(--stars-color, #de7921);
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-.game-price {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--accent-color, #ff00cc);
+   color: var(--gold);
   margin-bottom: 10px;
 }
-/* Quantity Input Styles */
+
+
+
 .quantity {
   margin-top: 10px;
 }
 
 .quantity label {
-  color: var(--primary-color, #00ffea);
-  font-weight: 600;
   margin-right: 10px;
+  font-weight: bold; 
+  font-size: 16px; 
+    color: var(--text-color); /* #f4f4f4 from root.css */
+gap: 10px;
 }
 
 .quantity input[type="number"] {
-  border-radius: 8px;
-  border: 1px solid var(--primary-color, #00ffea);
-  padding: 6px 10px;
-  background: var(--background-color, #181a20);
-  color: var(--text-color, #f4f4f4);
-  width: 70px;
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-/* Add some space between quantity and add to cart button */
 .add-to-cart-btn {
-  margin-top: 24px;
-  background: linear-gradient(135deg, var(--primary-color, #00ffea), var(--accent-color, #ff00cc));
+  background-color: var(--main-color);
   color: #181a20;
   font-weight: bold;
-  border: none;
-  padding: 14px 0;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  padding: 12px 25px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease; 
+    margin-top: 20px;
 }
 .add-to-cart-btn:hover {
-  background: var(--accent-color, #ff00cc);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-}
+  background-color: var(--main-color-hover);
+  color: #ffffff;}
 
 
 .extra-info-container {
-  background: var(--secondary-color, #1f2233);
+  background: #1e1e2f;
   padding: 20px 30px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   margin-top: 40px;
-  color: var(--text-color, #f4f4f4);
-  font-family: var(--font-family, 'Segoe UI', sans-serif);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+    flex: 1;
+  margin-left: auto;
 }
 
 .extra-info-container h2 {
-  font-size: 1.3rem;
+  font-size: 24px;
   margin-bottom: 15px;
   border-bottom: 1px solid #444;
   padding-bottom: 8px;
-  color: var(--primary-color, #00ffea);
+  color: var(--accent-color);
 }
 
 .extra-info-list {
@@ -167,7 +146,7 @@ h1 {
   justify-content: space-between;
   border-bottom: 1px dashed #333;
   padding: 10px 0;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .extra-info-list li:last-child {
@@ -175,14 +154,14 @@ h1 {
 }
 
 .extra-info-list strong {
-  color: var(--accent-color, #ff00cc);
+  color: #ccc;
   width: 40%;
 }
 
 .extra-info-list span {
-  color: var(--text-color, #f4f4f4);
+  color: #fff;
+  text-align: center;
   width: 60%;
-  text-align: left;
 }
 
 
@@ -201,17 +180,18 @@ h1 {
 }
 
 .game-desc {
-  background: var(--secondary-color, #1f2233);
-  color: var(--text-color, #f4f4f4);
-  font-size: 1.1rem;
-  line-height: 1.7;
-  padding: 24px 32px;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-  max-width: 900px;
-  margin: 32px auto 40px auto;
-  font-family: var(--font-family, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
-  transition: background 0.3s;
+  background-color: var(--dark);
+  color: var(--light-text);
+ font-size: 18px;
+  line-height: 1.6; 
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  max-width: 1000px;
+  margin: 0 auto 40px auto; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
 }
 .video-container {
   height: 700px;
@@ -221,7 +201,6 @@ iframe {
   height: 100%;
 }
 
-/* Related Products Section */
 .related-products {
   display: flex;
   flex-wrap: wrap;
@@ -260,6 +239,7 @@ iframe {
 }
 
 .listgames .game-content {
+    flex: 2;
   padding: 15px;
   background-color: var(--dark);
   color: var(--white);
@@ -277,9 +257,9 @@ iframe {
 }
 
 .game-price {
-  font-weight: bold;
-  color: var(--white);
-  margin: 10px 0;
+ margin-top: 10px;
+  font-size: 20px;
+  color: #192927;
 }
 
 .add-to-cart-related {
@@ -357,4 +337,6 @@ footer .social-link:hover {
 footer .bg-primary {
   background-color: var(--main-color) !important;
   color: var(--white) !important;
-}
+} 
+
+
