@@ -1,0 +1,31 @@
+    .team-card {
+        background-color: var(--secondary-color);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        color: var(--text-color);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+      }
+
+      .team-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .team-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+
+      .lead {
+        color: var(--text-color);
+      }
